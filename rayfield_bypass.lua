@@ -1,3 +1,4 @@
+local IS_SKID = not getgenv().IS_SKID
 function shallow_copy(t)
     local t2 = {}
     for k, v in pairs(t) do
@@ -28,6 +29,9 @@ loadstring = function(code)
         module.CreateWindow = function(self, settings)
             -- copy the array to prevent detection
             local settings = shallow_copy(settings)
+            if IS_SKID then
+                settings.Name = "BYPASSED BY github.com/pubmain"
+            end
             settings.KeySystem = nil
             game.StarterGui:SetCore(
                 "SendNotification",
