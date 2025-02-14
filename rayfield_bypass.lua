@@ -32,7 +32,7 @@ loadstring = function(code)
             game.StarterGui:SetCore(
                 "SendNotification",
                 {
-                    Title = "pubmain/rayfield_bypass.lua",
+                    Title = "github.com/pubmain",
                     Text = "Succesfully bypassed: " .. settings.Name,
                     Duration = 5
                 }
@@ -43,7 +43,7 @@ loadstring = function(code)
         game.StarterGui:SetCore(
             "SendNotification",
             {
-                Title = "pubmain/rayfield_bypass.lua",
+                Title = "github.com/pubmain",
                 Text = "Succesfully hooked rayfield lib",
                 Duration = 5
             }
@@ -54,7 +54,7 @@ end
 game.StarterGui:SetCore(
     "SendNotification",
     {
-        Title = "pubmain/rayfield_bypass.lua",
+        Title = "github.com/pubmain",
         Text = "pubmain rayfield bypasser has been activated",
         Duration = 5
     }
