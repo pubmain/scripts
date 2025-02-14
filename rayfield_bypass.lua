@@ -59,7 +59,7 @@ game.StarterGui:SetCore(
     "SendNotification",
     {
         Title = "github.com/pubmain",
-        Text = "pubmain rayfield bypasser has been activated",
+        Text = "rayfield_bypass.lua",
         Duration = 5
     }
 )
