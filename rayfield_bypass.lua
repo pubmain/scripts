@@ -29,9 +29,6 @@ loadstring = function(code)
         module.CreateWindow = function(self, settings)
             -- copy the array to prevent detection
             local settings = shallow_copy(settings)
-            if IS_SKID then
-                settings.Name = "BYPASSED BY github.com/pubmain"
-            end
             settings.KeySystem = nil
             game.StarterGui:SetCore(
                 "SendNotification",
@@ -41,6 +38,9 @@ loadstring = function(code)
                     Duration = 5
                 }
             )
+            if IS_SKID then
+                settings.Name = "BYPASSED BY github.com/pubmain"
+            end
             return old(self, settings)
         end
 
