@@ -51,3 +51,11 @@ loadstring = function(code)
         return module
     end
 end
+game.StarterGui:SetCore(
+    "SendNotification",
+    {
+        Title = "pubmain/rayfield_bypass.lua",
+        Text = "pubmain rayfield bypasser has been activated",
+        Duration = 5
+    }
+)
