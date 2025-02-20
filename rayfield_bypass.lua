@@ -28,7 +28,8 @@ loadstring = function(code)
         local old = module.CreateWindow
         module.CreateWindow = function(self, settings)
             -- copy the array to prevent detection
-            local settings = shallow_copy(settings)
+            -- i have to remove it so i can make money from linkvertise
+            -- local settings = shallow_copy(settings)
             settings.KeySystem = nil
             game.StarterGui:SetCore(
                 "SendNotification",
