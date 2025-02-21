@@ -1,5 +1,4 @@
--- note: this isnt finished yet
---loadstring(game:HttpGet("https://raw.githubusercontent.com/pubmain/scripts/main/dump.lua"))()
+loadstring(game:HttpGet("https://raw.githubusercontent.com/pubmain/scripts/main/dump.lua"))()
 local module = {
     enviroment = {},
     origNamecall = nil,
@@ -107,3 +106,25 @@ function module:hookFunction(func, hook, id)
             local reason = out[1]
             error("debugger.lua:hookFunction " .. id .. " failed: " .. reason)
         end
+        return table.unpack(out)
+    end)
+    self.functionHooks[id] = {
+        func = func,
+        original = old
+    }
+end
+
+function module:destroy(print_info)
+    local printd = print_info and function(...) print("debugger.lua:", ...) end or function() end
+    -- todo: restore enviroment
+    self.namecallListeners = {}
+    hookmetamethod(game, "__namecall", self.origNamecall)
+    printd("restored namecall")
+    for id, data in pairs(self.functionHooks) do
+        hookfunction(data.func, data.original)
+        printd("unhooked function", id)
+    end
+    printd("debugger is destroyed")
+end
+
+return module
