@@ -7,7 +7,7 @@ function shallow_copy(t)
     return t2
 end
 local old = loadstring
-loadstring = function(code)
+getgenv().loadstring = function(code)
     local search = "function RayfieldLibrary%:CreateWindow%(Settings%)"
     local func = old(code)
     if not func then
